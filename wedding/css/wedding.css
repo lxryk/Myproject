@@ -1,0 +1,308 @@
+/*
+* @Author: Administrator
+* @Date:   2017-10-18 22:06:56
+* @Last Modified by:   Administrator
+* @Last Modified time: 2017-10-19 19:02:49
+*/
+@import url(base.css);
+/* 头部开始*/
+body{
+    background: url("../img/footer-bg.jpg");
+}
+header{
+    width: 100%;
+    height: 639px;
+    overflow: hidden;
+}
+.box{
+    width:100%;
+    height: 100%;
+    background: red;
+    position: relative;
+}
+.box>.boxmask{
+    width: 100%;
+    height:auto;
+    overflow: hidden;
+    background: rgba(0, 0, 0, 0.5);
+   position: absolute;
+   top: 0;
+   left: 0;
+   /* right: 0;
+   bottom: 0;
+   margin: auto; */
+}
+.boxmask>.container{
+    width: 100%;
+    height: 100%;
+}
+.boxmask .leftb{
+    height: 2px;
+    background: #fff;
+    margin: 120px 0 40px 0;
+}
+.boxmask .rightb{
+    height: 2px;
+    background: #fff;
+    margin: 120px 0 40px 0;
+}
+.boxmask .hh2{
+    font-size: 24px;
+    color: #fff;
+    text-align: center;
+    margin: 110px 0 40px 0;
+}
+.boxmask .pp{
+    font-size: 20px;
+    color: #fff;
+    line-height: 30px;
+    text-align: center;
+    margin: 20px 0;
+}
+.boxmask .hh3{
+    font-size: 30px;
+    color: #fff;
+    text-align: center;
+    margin: 30px 0;
+}
+.boxmask .boxall{
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.boxmask .boxall>.boxll{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background: pink;
+    font-size: 30px;
+    font-weight: 900;
+    color: #fff;
+    text-align: center;
+    line-height: 100px;
+    margin: 79px 10px;
+}
+.box>ul{
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+}
+.box>ul>li{
+    width: 100%;
+    height: 100%;
+    float: left;
+    position: absolute;
+    top:0;
+    left: 100%;
+}
+.box>ul>li:first-child{
+    left:0;
+}
+.box>ul>li>a{
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+.box>ul>li>a>img{
+    width: 100%;
+    height: 100%;
+}
+.line{
+    width: 100%;
+    height: auto;
+    position: fixed;
+    top:0;
+    left:0;
+    z-index: 999;
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(255,255,255,0.5);
+}
+.line>span{
+    display: block;;
+    font-size: 16px;
+    margin-left: 30px;
+}
+.line>ul{
+    margin-right: 30px;
+}
+.line>ul>li{
+    font-size: 18px;
+    padding: 10px 20px;
+    float: left;
+    position: relative;
+}
+.line>ul>li>dl{
+    background: rgba(255,255,255,0.5);
+    position: absolute;
+    top:44px;
+    left:-5px;
+    display: none;
+}
+.line>ul>li>dl>dd>a{
+    display: block;
+    color:#4a4949;
+    font-size: 16px;
+    margin: 10px 10px;
+}
+.line>ul>li>dl>dd:hover{
+    background: #564852;
+}
+.line>ul>li:hover a{
+    color:#9A585C;
+}
+.line>ul>li>a{
+    color: #4a4949;
+}
+.list{
+    position: absolute;
+    bottom:30px;
+    left: 50%;
+    margin-left: -137px;
+}
+.list>ul{
+    width: 220px;
+    height: 10px;
+}
+.list>ul>li{
+    float: left;
+    margin-right: 5px;
+}
+.list>ul>li>a{
+    display: block;
+    width: 50px;
+    height: 10px;
+    border-radius: 10px;
+    background:#b5afaf;
+}
+.list>ul>li:hover a{
+    background: #666666;
+}
+/* 头部结束*/
+.por h3{
+    text-align: center;
+    margin-top: 90px;
+    margin-bottom: 10px;
+}
+.por p{
+    font-size: 14px;
+    text-align: center;
+    line-height: 20px;
+    color: #8a8282;
+}
+.por span{
+    display: block;
+    text-align: center;
+    line-height: 20px;
+    margin-bottom: 30px;
+    margin-top: 30px;
+    font-size: 14px;
+}
+.por a{
+    margin-right: 20px;
+    color: #333333;
+}
+.all .row li{
+    margin-bottom: 20px;
+    position: relative;
+    perspective: 500px;
+    overflow: hidden;
+}
+.all .row img{
+    display: block;
+    width: 100%;
+    height: 100%;
+    transition: all 1s;
+}
+.sousuo{
+    width: 100px;
+    height: 50px;
+    /*background: #fff;*/
+    position: absolute;
+    top:50%;
+    left:50%;
+    margin-top:-25px;
+    margin-left:-50px;
+    /* display: none; */
+    transform-style: preserve-3d;
+    transition: all 1s;
+    opacity: 0;
+    font-size: 24px;
+    line-height: 50px;
+    text-align:center;
+}
+.sousuo a{
+    color: #ff0000;
+}
+.all .row li:hover .hei{
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    overflow: hidden;
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: all 1s;
+}
+.all .row li:hover .sousuo{
+    display: block;
+    transform: rotate3d(1, 0, 0, 360deg);
+    opacity: 1;
+}
+.all .row li:hover img{
+    transform: scale(1.1,1.1);
+}
+.sousuo .iconfont{
+    color: #000;
+}
+label.wel {
+    background: #ff9800;
+    width: 150px;
+    height: 3px;
+    display: block;
+    margin: 20px auto 30px;
+}
+.endbox{
+    margin-top: 80px;
+    background: url("../img/bottom.jpg") center/cover;
+    height: 400px;
+}
+.endbox .endh2{
+    margin-top: 105px;
+    font-size: 20px;
+    line-height: 40px;
+    color: #fff;
+    text-align: center;
+}
+.endbox .endh3{
+    font-size: 18px;
+    line-height: 40px;
+    color: #fff;
+    text-align: center;
+}
+.endbox .endli{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.endbox .endli>li{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin: 30px 20px;
+    cursor: pointer;
+    transition: all 1s;
+}
+.endbox .endli>li:hover{
+    transform: rotateY(360deg);
+}
+.endbox .endli>li>img{
+    width: 100%;
+    height: 100%;
+}
