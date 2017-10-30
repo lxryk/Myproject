@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="game.css">
+	<title>打字游戏</title>
+</head>
+<body>
+	<div class="kaishi">3</div>
+	<div class="scoreb">
+		<div class="stop">||</div>
+		<div class="start">></div>
+		<div class="scorebox">
+			<img src="img/score.png" alt="">
+			<span>0</span>
+		</div>
+		<div class="life">
+			<img src="img/xin.png" alt="">
+			<span>10</span>
+		</div>
+		<div class="level">
+			<img src="img/level.png" alt="">
+			<span>simple</span>
+		</div>
+		<div class="laba">
+			<img src="img/laba.png" alt="">
+		</div>
+	</div>
+	<div class="gameover">
+		<div class="gamebox">
+			<div class="scorebox" style="margin-right: 10; margin-left: 5px; height:25px">
+				<img src="img/score.png" alt="">
+				<span>0</span>
+			</div>
+			<div class="life" style="margin-right:10; margin-left: 7px; height:25px">
+				<img src="img/xin.png" alt="">
+				<span>10</span>
+			</div>
+			<div class="level" style="margin-right: 0; margin-left: 7px; height:25px">
+				<img src="img/level.png" alt="">
+				<span>simple</span>
+			</div>
+		</div>
+		<div class="caidan"><img src="img/caidan.png" alt=""></div>
+		<div class="chong"><img src="img/chong.png" alt=""></div>
+	</div>
+</body>
+</html>
+<script src="game.js"></script>
+<script>
+	let kaishi=document.querySelector('.kaishi');
+	let shu=4;
+	let game=new Game();
+	kaishi.style.display='none';
+	let t=setInterval(fn, 1000);
+	function fn(){
+		shu--;
+		kaishi.style.display='block';
+		let r=Math.floor(Math.random()*256),
+            g=Math.floor(Math.random()*256),
+            b=Math.floor(Math.random()*256);
+        kaishi.style.color=`rgb(${r},${g},${b})`;
+		kaishi.innerHTML=shu;
+		if(shu<0){
+			clearInterval(t);
+			kaishi.style.display='none';
+			game.start();
+		}
+	}
+	// game.start();
+</script>
