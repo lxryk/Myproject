@@ -1,0 +1,116 @@
+/*
+* @Author: Administrator
+* @Date:   2017-10-10 11:14:11
+* @Last Modified by:   Administrator
+* @Last Modified time: 2017-10-11 01:14:48
+*/
+*{
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+a{
+    text-decoration: none;
+}
+html,body{
+	width: 100%;
+	height: 100%;
+	 overflow: hidden;
+}
+main{
+	width: 100%;
+	height: 100%;
+	background: red;
+}
+main>.tools{
+    width: 120px;
+    height: 100%;
+    border: 1px solid #999999;
+    background: #666666;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-content: center;
+    float: left;
+}
+main>.tools>li{
+    width:50px;
+    height: 50px;
+    margin-bottom: 10px;
+    border: 2px solid #fff;
+    text-align: center;
+    line-height: 50px;
+}
+.tools>li[active=true]{
+    border: 2px solid #ff6700;
+}
+main>.tools>.iconfont{
+    font-size:35px;
+    color:#fff;
+}
+main>.tops{
+    width:calc(100% - 121px);
+    height: 80px;
+    border-bottom: 1px solid #999999;
+    background: #666666;
+    position: absolute;
+    top:0;
+    left:122px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+main>.tops>button{
+    width:60px;
+    height:45px;
+    border-radius:8px;
+    background: #0086b3;
+    font-size: 24px;
+    color: #ff6700;
+    margin:5px 10px;
+    line-height: 45px;
+    text-align: center;
+    border:0;
+    cursor: pointer;
+}
+main>.tops>button>a{
+    color: #ff6700;
+}
+main>.bottoms{
+    width:calc(100% - 121px);
+    height:calc(100% - 81px);
+    background: #666666;
+    position: absolute;
+    top:81px;
+    left:122px;
+}
+canvas{
+    border: 1px solid red;
+    background: #fff;
+}
+main>.bottoms>.zhezhao{
+    width:900px;
+    height:600px;
+    position: absolute;
+    top:0;
+    left:0;
+    z-index: 999;
+}
+main>.bottoms>.xiangpi{
+    width:20px;
+    height:20px;
+    background: blue;
+    display: none;
+    position: absolute;
+    top:0;
+    left:0;
+}
+main>.bottoms>.clips{
+    width:100px;
+    height: 100px;
+    border:1px dashed green;
+    position: absolute;
+    top:0;
+    left: 0;
+    display: none;
+}
