@@ -1,0 +1,142 @@
+@mixin center{
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	margin: auto;
+}
+@mixin circle{
+	-webkit-border-radius: 50%;
+	-moz-border-radius:50%;
+	border-radius:50%;
+}
+@mixin borderR($r){
+	-webkit-border-radius: $r;
+	-moz-border-radius:$r;
+	border-radius:$r;
+}
+$width:600px;
+*{
+	margin:0;
+	padding:0;
+	list-style:none;
+}
+html,body{
+	width:100%;
+	height:100%;
+	background: rgba(0,0,0,0.5);
+}
+.qipan{
+	width:$width;
+	height:$width;
+	background: #d6b248;
+	@include center;
+	.qizi{
+		width:$width/15-10;
+		height:$width/15-10;
+		@include circle;
+		margin:5px;
+		float: left;
+		position: relative;
+		z-index: 999;
+	}
+	.heng{
+		width:$width - $width/15;
+		height:1px;
+		background: #000;
+		position: absolute;
+		left:$width/15/2;
+		opacity: 0;
+		}
+	@for $i from 0 through 14{
+		div:nth-of-type(#{$i+1}){
+			top:$width/30 + $i*$width/15;
+			animation: hengd 1s $i*0.1s forwards;
+			}
+	}
+	.shu{
+		height:$width - $width/15;
+		width:1px;
+		background: #000;
+		position: absolute;
+		top:$width/15/2;
+		opacity: 0;
+	}
+	@for $i from 0 through 14{
+		span:nth-of-type(#{$i+1}){
+			left:$width/30 + $i*$width/15;
+			animation: shud 1s $i*0.1s forwards;
+		}
+	}
+	.hei{
+		background: #000;
+	}
+	.bai{
+		background: #fff;
+	}
+	i{
+		display: block;
+		width:$width/50;
+		height:$width/50;
+		background: #000;
+		@include circle;
+		transform: translate3d(-50%,-50%,0);
+		position: absolute;
+		animation: heid 2s;
+	}
+	i:nth-of-type(1){
+		top:3.5*$width/15;
+		left:3.5*$width/15;
+	}
+	i:nth-of-type(2){
+		top:3.5*$width/15;
+		left:11.5*$width/15;
+	}
+	i:nth-of-type(3){
+		top:7.5*$width/15;
+		left:7.5*$width/15;
+	}
+	i:nth-of-type(4){
+		top:11.5*$width/15;
+		left:3.5*$width/15;
+	}
+	i:nth-of-type(5){
+		top:11.5*$width/15;
+		left:11.5*$width/15;
+	}
+	@keyframes hengd{
+		0%{
+			transform: translate3d(0,-800px,0);
+			opacity: 0;
+		}
+		100%{
+			transform: translate3d(0,0,0);
+			opacity: 1;
+		}
+	}
+	@keyframes shud{
+		0%{
+			transform: translate3d(-800px,0,0);
+			opacity: 0;
+		}
+		100%{
+			transform: translate3d(0,0,0);
+			opacity: 1;
+		}
+	}
+	@keyframes heid{
+		0%{
+			transform: translate3d(0,-800px,0);
+			opacity: 0;
+		}
+		100%{
+			transform: translate3d(0,0,0);
+			opacity: 1;
+		}
+	}
+}
+
+
+
+
