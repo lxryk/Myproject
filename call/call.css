@@ -1,0 +1,86 @@
+*{
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+*{
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    -webkit-text-size-adjust: ;
+    box-sizing: border-box;
+}
+a{
+	text-decoration: none;
+}
+header{
+	width: 100%;
+	height: 1rem;
+	background: #e5e4e5;
+	padding: 0.2rem 0.2rem;
+	position: fixed;
+	top: 0;
+	left: 0;
+}
+.box{
+	width: 100%;
+	height: 1rem;
+	background: #fff;
+}
+header>input{
+	float: left;
+	width: 100%;
+	height: 0.6rem;
+	font-size: 0.28rem;
+	text-align: center;
+	line-height: 0.5rem;
+	outline: none;
+	border: none;
+}
+.tips{
+	width: 100%;
+	height: 0.8rem;
+	background: #fff;
+	font-size: 0.4rem;
+	line-height: 0.8rem;
+	position: fixed;
+	top: 1rem;
+	left: 0;
+	padding-left: 0.4rem;
+	border-bottom: 0.01rem solid #999;
+}
+dl{
+	padding: 0.2rem 0.2rem;
+}
+dt{
+	width: 100%;
+	height: 0.6rem;
+	font-size: 0.34rem;
+	color: #fff;
+	line-height: 0.6rem;
+	padding-left: 0.2rem;
+	background: #e7e6e2;
+}
+dd{
+	width: 100%;
+	height: 0.8rem;
+	font-size: 0.3rem;
+	line-height: 0.8rem;
+	padding-left: 0.2rem;
+	border-bottom: 0.01rem solid #888;
+}
+dd a{
+	color: #1a1919;
+}
+.aside{
+	width: 0.3rem;
+	height: auto;
+	background: #e5e5e5;
+	position: fixed;
+	right: 0.2rem;
+	top: 0;
+}
+.aside>li{
+	font-size: 0.3rem;
+    color: #1a1919;
+    text-align: center;
+
+}
