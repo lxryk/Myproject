@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="jquery-3.2.1.js"></script>
+    <title>Title</title>
+</head>
+<style>
+    *{
+        margin:0;
+        padding:0;
+        list-style: none;
+    }
+    html,body{
+        width: 100%;
+        height: 100%;
+        position: relative;
+    }
+    .box{
+        width: 50px;
+        height: 50px;
+        background: red;
+        border-radius: 50%;
+        position: absolute;
+        top:calc(50% - 25px);
+        left:calc(50% - 25px);
+        opacity: 0;
+    }
+</style>
+<body>
+
+<script>
+    $(function(){
+        for(let i=0;i<100;i++){
+        let width=height=Math.floor(Math.random()*40+30);
+        let left=Math.floor(Math.random()*(innerWidth-90)),
+            top=Math.floor(Math.random()*(innerHeight-90));
+        let r=Math.floor(Math.random()*256),
+            g=Math.floor(Math.random()*256),
+            b=Math.floor(Math.random()*256);
+            $('<div>').appendTo(document.body).addClass('box')
+                .css({width,height,background:`rgb(${r},${g},${b})`}).delay(i*50).animate({left,top,opacity:'1'});
+        }
+    })
+</script>
+</body>
+</html>
