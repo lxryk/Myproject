@@ -1,0 +1,84 @@
+*{
+    padding:0;
+    margin:0;
+    list-style: none;
+}
+html,body{
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+.box{
+    width: 920px;
+    height: 410px;
+    position: absolute;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    margin:auto;
+}
+.box>ul{
+    width: 920px;
+    height: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.box>ul>li{
+    width: 300px;
+    height:200px;
+}
+.box>ul>li>img{
+    width: 100%;
+    height:100%;
+}
+.mask{
+    width: 600px;
+    height: 500px;
+    position: absolute;
+    top:0;
+    left: 0;
+    right:0;
+    bottom:0;
+    margin:auto;
+    transform: scale(0,0);
+    transition: .5s;
+    box-shadow: 0 0 0 1000px rgba(0,0,0,0.8);
+}
+.mask>img{
+    width: 600px;
+    height: 500px;
+    position: absolute;
+    top:0;
+    left: 0;
+    right:0;
+    bottom:0;
+    margin:auto;
+}
+.active{
+    transform: scale(1,1);
+}
+.mask>.cuo{
+    width: 60px;
+    height: 60px;
+    background: url("img/cuo .png") center / cover;
+    position: absolute;
+    top:-30px;
+    right:-30px;
+}
+.mask>div[class*=btn]{
+    width:60px;
+    height: 60px;
+    position: absolute;
+    top:calc(50% - 30px);
+}
+.mask>.btnL{
+    left:-90px;
+    background: url("img/left.png") center / cover;
+}
+.mask>.btnR{
+    right:-90px;
+    background: url("img/right.png") center / cover;
+}

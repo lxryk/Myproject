@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="index.css">
+    <script src="jquery-3.2.1.js"></script>
+    <title>Title</title>
+</head>
+<body>
+<div class="box">
+    <ul>
+        <li><img src="img/1.jpg" alt=""></li>
+        <li><img src="img/2.jpg" alt=""></li>
+        <li><img src="img/3.jpg" alt=""></li>
+        <li><img src="img/4.jpg" alt=""></li>
+        <li><img src="img/5.jpg" alt=""></li>
+        <li><img src="img/6.jpg" alt=""></li>
+    </ul>
+</div>
+<div class="mask">
+    <img src="img/1.jpg" alt="">
+    <div class="btnL"></div>
+    <div class="btnR"></div>
+    <div class="cuo"></div>
+</div>
+<script>
+    let lis=$('.box>ul>li>img');
+    let mask=$('.mask');
+    let cuo=$('.cuo');
+    let imgs=$('img',mask);
+    let lefts=$('.btnL');
+    let rights=$('.btnR');
+    let num;
+
+    $(function(){
+        $(document).on('click',function(e){
+            let element=e.target;
+            if(element.nodeName == 'IMG'){
+                let src=$(element).attr('src');
+                mask.addClass('active');
+                imgs.attr('src',src);
+                num=lis.index(element);
+            }
+            if(element.className == 'btnL'){
+                num--;
+                if(num < 0){
+                    num=lis.length-1;
+                }
+                let src=$(lis[num]).attr('src');
+                imgs.attr('src',src);
+            }
+            if(element.className == 'btnR'){
+                num++;
+                if(num >lis.length-1){
+                    num=0;
+                }
+                let src=$(lis[num]).attr('src');
+                imgs.attr('src',src);
+            }
+        })
+        /*lis.on('click',function(){
+           let src=$('img',this).attr('src');
+           mask.addClass('active');
+           imgs.attr('src',src);
+           num=$(this).index();
+       })*/
+       /* lefts.click(function(){
+            num--;
+            if(num<0){
+                num=lis.length-1;
+            }
+            let src=$('img',lis[num]).attr('src');
+            imgs.attr('src',src);
+        })
+        rights.click(function(){
+            num++;
+            if(num>5){
+                num=0;
+            }
+            let src=$('img',lis[num]).attr('src');
+            imgs.attr('src',src);
+        })*/
+        cuo.click(function(){
+            mask.removeClass('active')
+        })
+    })
+</script>
+</body>
+</html>
