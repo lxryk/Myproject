@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>time</title>
+</head>
+<style>
+   /* .box{
+        width:400px;
+        height: 400px;
+        margin:0 auto;
+        font-size: 30px;
+        line-height: 300px;
+        text-align: center;
+        !*background: #253461;*!
+        border:1px solid #000;
+        border-radius: 50px;
+    }*/
+</style>
+<body>
+    <div class="box">
+        距离中秋还有
+        <!--<span></span>天-->
+        <!--<span></span>小时-->
+        <span></span>分
+        <span></span>秒
+    </div>
+<script>
+    /*
+    * GMT
+    * UTC
+    * */
+    //创建日期
+//    let date=new Date('2017/10/1 14:25');
+//    let date=new Date(2017,10,2,14,15,00);    //月份需要减 1  才是当前所需要设置的时间
+   /* let date=new Date();
+    console.log(date);
+    console.dir(date);      //打印
+    console.log(date.getMonth());     //
+    console.log(date.getFullYear());
+    console.log(date.getDate());    // 几号
+    console.log(date.getDay());     //周几
+    console.log(date.getHours());    //小时
+    console.log(date.getTime());    //毫秒
+    date.setFullYear(2018);       //设置年份
+    date.setMonth(9);        //设置月份   月份减一  才是需要的月份
+    date.setDate(1);       //设置几号
+    //星期几 不能设置
+    date.setHours(15);      //设置  时  分  秒+
+    console.log(date);*/
+   /* let span=document.querySelectorAll('span');
+    fn();*/
+//    setInterval(fn,1000);
+    /*function fn(){
+        let arr=[];
+        let now=new Date();
+        let autu=new Date('2017/10/4  0:0:0');
+        let cha=Math.floor((autu.getTime()-now.getTime())/1000);
+        let day=Math.floor(cha/(60*60*24));
+        arr.push(day);
+        cha=cha%(60*60*24);
+        let hour=Math.floor(cha/(60*60));
+        arr.push(hour);
+        cha=cha%(60*60);
+        let minute=Math.floor(cha/(60));
+        arr.push(minute);
+        let second=cha%60;
+        arr.push(second);
+        arr.forEach((element,index)=>{
+            span[index].innerHTML=element;
+        })
+    }*/
+        let span=document.querySelectorAll('span');
+        let now=new Date();
+        let later=new Date();
+        later.setMinutes(later.getMinutes()+3);
+        fn();
+        setInterval(fn,1000);
+        function fn(){
+            let arr=[];
+            let now=new Date();
+            let cha=Math.floor((later.getTime()-now.getTime())/1000);
+            let min=Math.floor(cha/60);
+            let sec=cha%60;
+            arr.push(min,sec);
+            arr.forEach((element,index)=>{
+                span[index].innerHTML=element;
+            })
+        }
+
+
+
+
+
+
+
+
+
+
+
+</script>
+
+
+</body>
+</html>
