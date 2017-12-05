@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="vue.js"></script>
+    <link rel="stylesheet" href="notes.css">
+    <title>便签</title>
+</head>
+<body>
+
+<div id="app">
+    <header>
+        <select v-model="message" @change="select(message)">
+            <option >全部</option>
+            <option v-for="(v,i) in type">{{v}}</option>
+        </select>
+    </header>
+
+    <section @dblclick="add">
+        <my-notes v-for="(item,index) in notes" :msg="item" :key="item.id" v-on:schange="update"
+                  v-on:delete="del" v-on:addclas="addclass(index)" v-on:moves="movement">
+
+        </my-notes>
+    </section>
+</div>
+
+<script>
+
+    /*let arr=[
+        {id:1,content:'天气不好',color:'#ff318e',x:100,y:90,type:'生活'},
+        {id:2,content:'心情很好',color:'#ff6700',x:500,y:120,type:'生活'},
+        {id:3,content:'幼儿园',color:'#57A5FF',x:800,y:100,type:'新闻'},
+        {id:4,content:'vue',color:'#5DF5FF',x:1300,y:110,type:'学习'},
+    ]
+
+    localStorage.notes=JSON.stringify(arr);*/
+
+    Vue.component('my-notes',{
+        props:['msg'],
+        data:function () {
+            return{
+                smsg:Object.assign({},this.msg),
+                flag:false,
+            }
+        },
+        template:`
+            <div class="list" :style="{left:smsg.x+'px',top:smsg.y+'px',border:'1px solid'+smsg.color}"
+            @mousedown="move(smsg)">
+             <label :style="{background:smsg.color}" @click="addcla"><p>{{smsg.type}}</p> <span @click="del(smsg.id)">X</span></label>
+            <textarea v-model="smsg.content">{{smsg.content}}</textarea>
+</div>
+        `,
+        methods:{
+            del(id){
+                this.$emit('delete',id);
+            },
+            addcla(){
+                this.$emit('addclas');
+            },
+            move(value){
+                this.$emit('moves',value);
+            }
+        },
+        watch:{
+            'smsg':{
+                handler:function (v,oldv) {
+                    this.$emit('schange',this.smsg);
+                },
+                deep:true
+            }
+        }
+    });
+
+
+    let app=new Vue({
+        el:'#app',
+        data:{
+            notes:[],
+            type:['生活','学习','娱乐','心情','工作'],
+            message:'全部',
+        },
+        methods:{
+            update(v){
+                let index=0;
+                this.notes.forEach((ele,i)=>{
+                    if(ele.id == v.id){
+                        index = i;
+                    }
+                })
+               this.notes.splice(index,1,v);
+            },
+            del(id){
+               this.notes=this.notes.filter(ele=>ele.id != id );
+            },
+            add(e){
+                let id=this.notes[this.notes.length-1].id+1;
+                let color=`rgb(${Math.floor(Math.random()*256)},${Math.floor(Math.random()*256)},${Math.floor(Math.random()*256)})`;
+                let x=e.clientX,y=e.clientY-80;
+                let type=this.type[Math.floor(Math.random()*this.type.length)];
+                let obj={id,content:'',color,x,y,type};
+                this.notes.push(obj);
+            },
+            addclass(index){
+                let lists=document.querySelectorAll('.list');
+                lists.forEach(ele=>{
+                    ele.classList.remove('active');
+                })
+                lists[index].classList.add('active');
+            },
+            select(value){
+                let lists=document.querySelectorAll('.list');
+                lists.forEach(ele=>{
+                    let type=ele.children[0].children[0].innerHTML;
+                    if(type == value){
+                        ele.classList.remove('listnone');
+                    }else if(value == '全部'){
+                        ele.classList.remove('listnone');
+                    }else{
+                        ele.classList.add('listnone');
+                    }
+                })
+            },
+            movement(v){
+                document.addEventListener('mousemove',fn);
+                document.addEventListener('mouseup',function(){
+                    document.removeEventListener('mousemove',fn)
+                });
+                function fn(e){
+                    let left=e.clientX, top=e.clientY;
+                    v.x=left-10;
+                    v.y=top-90;
+                };
+            }
+        },
+        watch:{
+            'notes':{
+                handler:function(){
+                    localStorage.notes = JSON.stringify(this.notes );
+                },
+                deep:true
+            }
+        },
+        mounted(){
+            this.notes=JSON.parse(localStorage.notes)
+        }
+    });
+
+
+</script>
+
+</body>
+</html>
